@@ -1,0 +1,3 @@
+reviews_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ReviewsBundle:Default:index }

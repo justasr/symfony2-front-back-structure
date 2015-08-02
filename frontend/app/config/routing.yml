@@ -1,0 +1,11 @@
+reviews:
+    resource: "@ReviewsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /

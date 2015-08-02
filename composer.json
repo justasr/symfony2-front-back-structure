@@ -1,0 +1,72 @@
+{
+    "name": "justinas/symfony_composer_test",
+    "license": "proprietary",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "": "frontend/src/",
+            "SymfonyStandard\\": "frontend/app/SymfonyStandard/"
+        },
+        "psr-0": {"": "common/plugins"}
+    },
+    "require": {
+        "php": ">=5.3.9",
+        "symfony/symfony": "2.7.*",
+        "doctrine/orm": "~2.2,>=2.2.3,<2.5",
+        "doctrine/dbal": "<2.5",
+        "doctrine/doctrine-bundle": "~1.4",
+        "symfony/assetic-bundle": "~2.3",
+        "symfony/swiftmailer-bundle": "~2.3",
+        "symfony/monolog-bundle": "~2.4",
+        "sensio/distribution-bundle": "~4.0",
+        "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "mremi/url-shortener-bundle": "dev-master",
+        "doctrine/doctrine-fixtures-bundle": "2.2.*"
+
+    },
+    "require-dev": {
+        "sensio/generator-bundle": "~2.3"
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "SymfonyStandard\\Composer::hookRootPackageInstall"
+        ],
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstraps",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCaches",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssetsFB",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFiles",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFilesFB",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstraps",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCaches",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssetsFB",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFiles",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFilesFB",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ]
+    },
+    "config": {
+        "bin-dir": "frontend/bin",
+        "vendor-dir": "common/vendors"
+    },
+    "extra": {
+        "symfony-app-dir": "frontend/app",
+        "symfony-web-dir": "frontend/web",
+        "symfony-assets-install": "relative",
+        "incenteev-parameters": [
+            {
+                "file": "frontend/app/config/parameters.yml"
+            },
+            {
+                "file": "backend/app/config/parameters.yml"
+            }
+        ]
+    }
+
+}
